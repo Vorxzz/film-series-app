@@ -1,0 +1,644 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1f2c3b, #2d3d50);
+
+}
+
+/* Header */
+
+.header {
+  background: linear-gradient(135deg, #1f2c3b, #2d3d50);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 7%;
+    box-shadow: 0px 0px 17px -2px rgba(0,0,0,0.75);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    position: relative;
+    }
+
+.header a {
+    color: white;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 0;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+    
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navbar a {
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+    padding-bottom: 0.2rem;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    border-bottom: 2px solid white;
+}
+/* Navbar arama kutusu */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #1f2c3b, #2d3d50);
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-left: 20px;
+  }
+  
+  .search-box input {
+    background: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    padding: 6px;
+    width: 140px;
+    font-size: 14px;
+  }
+  
+  .search-box button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding-left: 5px;
+    transition: color 0.3s;
+  }
+  
+  .search-box button:hover {
+    color: #e50914;
+  }  
+
+/* Menü Butonu (sağda olacak) */
+.menu-btn {
+    background-color: transparent;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    margin-left: 2rem;
+}
+
+/* Hero */
+
+.hero{
+    background-image: url(images/home\ bannerr.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 65vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+.hero::after{
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 1;
+}
+.hero-content{
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+.hero h1{
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+.hero h1 span{
+    font-size: 3.5rem;
+    color: #ffffff;
+}
+.hero p{
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Slider */
+
+.popular{
+  background: linear-gradient(135deg, #1f2c3b, #2d3d50);
+    padding: 4rem 7%;
+    color: white;
+    text-align: center;
+
+}
+.popular h2{
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #444;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+.slider-wrapper{
+    position: relative;
+    align-items: center;
+    display: flex;
+}
+.slider-container{
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    flex: 1;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE ve Edge */
+    scroll-snap-type: x mandatory;
+}
+.slider-container::-webkit-scrollbar {
+display: none; /* Chrome, Safari */
+}
+
+.slider{
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.slide{
+    min-width: 200px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    text-decoration: none;
+    color: white;
+}
+.slide:hover{
+    transform: scale(1.05);
+}
+.slide img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+.slide h3{
+    padding: 0.7rem;
+    font-size: 1.1rem;
+}
+
+.slider-btn{
+    background-color: rgba(0,0,0,0.6);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+}
+.slider-btn.left{
+    position: absolute;
+    left: -10px;
+}
+.slider-btn.right{
+    position: absolute;
+    right: -10px;
+}
+
+/* Suggested Film and Series */
+
+.suggested{
+    background-color: white;
+    padding: 4rem 7%;
+    color: white;
+    text-align: center;
+}
+.suggested h2{
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #444;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    text-decoration: none;
+    color: #000;
+}
+.media-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.media-card{
+    display: block;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+.media-card:hover{
+    transform: scale(1.05);
+}
+.media-card img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+.media-card h3{
+    padding-top: 1rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+.media-card p {
+    font-size: 0.9rem;
+    color: #aaa;
+    padding-bottom: 1rem;
+    text-decoration: none;
+}
+
+/* Search html tasarımı */
+/* Arama sonuçlarını saran container */
+.result-card {
+    display: inline-block;
+    width: 200px;
+    margin: 15px;
+    text-decoration: none;
+    color: white;
+    background-color: #1c1c1c;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .result-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .result-card img {
+    width: 100%;
+    border-bottom: 1px solid #444;
+  }
+  
+  .result-card h3 {
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0e0e0e;
+    color: #ffffff;
+    line-height: 1.6;
+  }
+  
+  #details {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 20px;
+  }
+  
+  .detail-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a1a;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+  }
+  
+  .detail-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .detail-card img {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .info {
+    padding: 30px;
+  }
+  
+  .info h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  
+  .meta {
+    display: flex;
+    gap: 20px;
+    font-size: 1rem;
+    color: #bbbbbb;
+    margin-bottom: 20px;
+  }
+  
+  .meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .meta span::before {
+    content: '•';
+    font-size: 1.2rem;
+    color: #ff3c00;
+  }
+  
+  .info p {
+    font-size: 1.1rem;
+    color: #dddddd;
+    margin-bottom: 30px;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .tag {
+    background-color: #ff3c00;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  
+  .tag:hover {
+    background-color: #e63300;
+  }
+  
+  /* Responsive */
+  @media (min-width: 768px) {
+    .detail-card {
+      flex-direction: row;
+    }
+  
+    .detail-card img {
+      width: 45%;
+      height: 100%;
+      border-bottom: none;
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  
+    .info {
+      width: 55%;
+    }
+  }
+
+/* trailer ve favori butonu */
+
+  /* Ortak buton stili */
+.trailer-btn,
+.favorite-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  box-shadow: 0 4px 12px rgba(255, 65, 108, 0.4);
+}
+
+/* Hover efekti */
+.trailer-btn:hover,
+.favorite-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255, 75, 43, 0.5);
+}
+
+/* Favori aktif durumu */
+.favorite-btn.active {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+ /*FİLMS CSS KISMI */
+
+.search-box-film{
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 6px 12px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.hero-film h1{
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.film-content h1{
+  font-size: 2rem;
+  color: #ffffff;
+}
+.search-box-film input {
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  font-size: 14px;
+  width: 160px;
+  padding: 4px;
+}
+.search-box-film button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.movie-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.movie-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 12px;
+  text-align: center;
+  color: white;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+}
+
+/* Series kısmı */
+.series-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.series-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 12px;
+  text-align: center;
+  color: white;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.series-card img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.series-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+}
+.hero-series h1{
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.series-content h1{
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+/*Reels*/
+.reels-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Instagram embed ayarı */
+.instagram-media {
+  width: 100% !important;
+  max-width: 400px;
+  margin: 0 auto !important;
+  border-radius: 12px;
+  overflow: hidden;
+}
+/* Reels başlık ve container modernleştirme */
+.max-w-3xl.mx-auto.px-4.py-10 {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.max-w-3xl.mx-auto.px-4.py-10 h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #fff;
+  position: relative;
+}
+
+.max-w-3xl.mx-auto.px-4.py-10 h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #00bfff;
+  margin: 0.5rem auto 0;
+  border-radius: 9999px;
+}
+
+/* Reels container düzeni */
+.reels-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* Instagram embed kartları daha modern görünüm */
+.instagram-media {
+  width: 100% !important;
+  max-width: 400px;
+  margin: 0 auto !important;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  background-color: #1e1e1e;
+  transition: transform 0.3s ease;
+}
+
+.instagram-media:hover {
+  transform: scale(1.02);
+}
