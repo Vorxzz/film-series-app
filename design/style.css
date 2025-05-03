@@ -58,6 +58,7 @@ body {
 .navbar a:hover {
     border-bottom: 2px solid white;
 }
+
 /* Navbar arama kutusu */
 .search-box {
     display: flex;
@@ -642,3 +643,5 @@ display: none; /* Chrome, Safari */
 .instagram-media:hover {
   transform: scale(1.02);
 }
+
+/* menubtn */
