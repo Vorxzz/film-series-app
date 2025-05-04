@@ -21,6 +21,7 @@ body {
     top: 0;
     z-index: 1000;
     position: relative;
+    flex-wrap: wrap;
     }
 
 .header a {

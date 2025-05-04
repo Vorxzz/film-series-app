@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oppenheimer</title>
+    <title>Inception</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/design/style.css">
 </head>
 <body>
     <div class="header">
-        <a href="index.html">ReelPick</a>
+      <a href="/pages/index.html">ReelPick</a>
     
         <div class="nav-container">
-            <nav class="navbar">
-                <a href="index.html">Home</a>
-                <a href="films.html">Films</a>
-                <a href="series.html">Series</a>
-                <a href="reels.html">Reels</a>                           
-            </nav>
+          <nav class="navbar">
+            <a href="/pages/index.html">Home</a>
+            <a href="/pages/films.html">Films</a>
+            <a href="/pages/series.html">Series</a>
+            <a href="/pages/reels.html">Reels</a>                           
+        </nav>
     
             <!-- Arama Kutusu -->
             <div class="search-box">
@@ -56,7 +56,7 @@
 
   <script>
     const apiKey = '7acee0ab0596510d99a03a4333c3d523'; // Kendi TMDb API anahtarını buraya ekle
-    const movieTitle = 'Oppenheimer';
+    const movieTitle = 'Inception';
   
     // Türkçe verilerle arama yap
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(movieTitle)}&language=tr-TR`)
@@ -91,6 +91,6 @@
     
     <script src="/scripts/app.js"></script>
     <script src="/scripts/details.js"></script>
-    <script src="/scripts/film.js"></script>
+    
 </body>
 </html>

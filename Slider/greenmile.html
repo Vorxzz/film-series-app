@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Green Mile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/design/style.css">
+</head>
+<body>
+    <div class="header">
+      <a href="/pages/index.html">ReelPick</a>
+    
+        <div class="nav-container">
+          <nav class="navbar">
+            <a href="/pages/index.html">Home</a>
+            <a href="/pages/films.html">Films</a>
+            <a href="/pages/series.html">Series</a>
+            <a href="/pages/reels.html">Reels</a>                           
+        </nav>
+    
+            <!-- Arama Kutusu -->
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search movie..." />
+                <button onclick="search()"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+    
+            <button class="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Film/Dizi Detayları -->
+  <div id="details">
+    <div class="detail-card">
+      <img src="" alt="poster" id="detailPoster" />
+      <div class="info">
+        <h1 id="detailTitle"></h1>
+        <p><strong>Çıkış Tarihi:</strong> <span id="releaseDate"></span></p>
+        <p><strong>Puan:</strong> <span id="rating"></span></p>
+        <p id="overview"></p>
+
+        <!-- Trailer Butonu -->
+        <a href="#" id="trailerBtn" class="trailer-btn" target="_blank">
+          🎬 Trailer'ı İzle
+        </a>
+
+        <!-- Favorilere Ekle Butonu -->
+        <button id="favoriteBtn" class="favorite-btn">
+          ❤️ Favorilere Ekle
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const apiKey = '7acee0ab0596510d99a03a4333c3d523'; // Kendi TMDb API anahtarını buraya ekle
+    const movieTitle = 'The Green Mile';
+  
+    // Türkçe verilerle arama yap
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(movieTitle)}&language=tr-TR`)
+      .then(response => response.json())
+      .then(data => {
+        const movie = data.results[0];
+        const movieId = movie.id;
+  
+        // Detayları ve videoları Türkçe olarak al
+        fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&append_to_response=videos&language=tr-TR`)
+          .then(response => response.json())
+          .then(details => {
+            document.getElementById('detailTitle').textContent = details.title;
+            document.getElementById('releaseDate').textContent = details.release_date;
+            document.getElementById('rating').textContent = details.vote_average;
+            document.getElementById('overview').textContent = details.overview;
+            document.getElementById('detailPoster').src = `https://image.tmdb.org/t/p/w500${details.poster_path}`;
+  
+            const trailer = details.videos.results.find(video => video.type === 'Trailer' && video.site === 'YouTube');
+            if (trailer) {
+              document.getElementById('trailerBtn').href = `https://www.youtube.com/watch?v=${trailer.key}`;
+            } else {
+              document.getElementById('trailerBtn').style.display = 'none';
+            }
+          });
+      })
+      .catch(error => {
+        console.error('Hata:', error);
+      });
+  </script>
+  
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/details.js"></script>
+</body>
+</html>
