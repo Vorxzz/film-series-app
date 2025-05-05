@@ -9,25 +9,24 @@
 </head>
 <body>
     <div class="header">
-        <a href="/pages/index.html">ReelPick</a>
+        <a href="/pages/index.html" class="logo">ReelPick</a>
     
-        <div class="nav-container">
-            <nav class="navbar">
+        <button class="menu-btn" id="menuToggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    
+        <div class="nav-container" id="nav-container">
+            <nav class="navbar" id="navbar">
                 <a href="/pages/index.html">Home</a>
                 <a href="/pages/films.html">Films</a>
                 <a href="/pages/series.html">Series</a>
-                <a href="/pages/reels.html">Reels</a>                           
+                <a href="/pages/reels.html">Reels</a>
             </nav>
     
-            <!-- Arama Kutusu -->
-            <div class="search-box-film">
+            <div class="search-box">
                 <input type="text" id="searchInput" placeholder="Search movie..." />
                 <button onclick="search()"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
-    
-            <button class="menu-btn">
-                <i class="fa-solid fa-bars"></i>
-            </button>
         </div>
     </div>
 
@@ -44,5 +43,6 @@
 
     <script src="/scripts/app.js"></script>
     <script src="/scripts/reels.js"></script>
+    <script src="/scripts/header.js"></script>
 </body>
 </html>

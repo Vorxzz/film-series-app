@@ -12,97 +12,130 @@ body {
 
 .header {
   background: linear-gradient(135deg, #1f2c3b, #2d3d50);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 7%;
-    box-shadow: 0px 0px 17px -2px rgba(0,0,0,0.75);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    position: relative;
-    flex-wrap: wrap;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 7%;
+  box-shadow: 0px 0px 17px -2px rgba(0,0,0,0.75);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
 
-.header a {
-    color: white;
-    font-size: 2.2rem;
-    font-weight: bold;
-    margin: 0;
-    cursor: pointer;
-    text-decoration: none;
+.header a{
+  color: white;
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .nav-container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    justify-content: space-between;
-    
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+  transition: max-height 0.3s ease;
 }
 
 .navbar {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .navbar a {
-    font-size: 1.2rem;
-    color: white;
-    text-decoration: none;
-    padding-bottom: 0.2rem;
-    border-bottom: 2px solid transparent;
-    transition: all 0.3s ease;
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
 }
 
 .navbar a:hover {
-    border-bottom: 2px solid white;
+  border-bottom: 2px solid white;
 }
 
-/* Navbar arama kutusu */
 .search-box {
-    display: flex;
-    align-items: center;
-    background: linear-gradient(135deg, #1f2c3b, #2d3d50);
-    border-radius: 20px;
-    padding: 5px 10px;
-    margin-left: 20px;
-  }
-  
-  .search-box input {
-    background: transparent;
-    border: none;
-    color: white;
-    outline: none;
-    padding: 6px;
-    width: 140px;
-    font-size: 14px;
-  }
-  
-  .search-box button {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-    padding-left: 5px;
-    transition: color 0.3s;
-  }
-  
-  .search-box button:hover {
-    color: #e50914;
-  }  
-
-/* Menü Butonu (sağda olacak) */
-.menu-btn {
-    background-color: transparent;
-    color: white;
-    font-size: 1.5rem;
-    border: none;
-    cursor: pointer;
-    margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #1f2c3b, #2d3d50);
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-left: 20px;
 }
+
+.search-box input {
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  padding: 6px;
+  width: 140px;
+  font-size: 14px;
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  padding-left: 5px;
+  transition: color 0.3s;
+}
+
+.search-box button:hover {
+  color: #e50914;
+}
+
+.menu-btn {
+  display: none;
+  background-color: transparent;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* ------- Responsive Styles ------- */
+
+@media (max-width: 768px) {
+  .menu-btn {
+      display: block;
+  }
+
+  .nav-container {
+      flex-direction: column;
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+  }
+
+  .nav-container.active {
+      max-height: 500px; /* yeterli bir değer */
+      margin-top: 1rem;
+  }
+
+  .navbar {
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      align-items: flex-start;
+  }
+
+  .search-box {
+      margin: 1rem 0;
+      width: 100%;
+  }
+
+  .search-box input {
+      width: 100%;
+  }
+}
+
 
 /* Hero */
 
@@ -165,77 +198,78 @@ body {
     display: inline-block;
     padding-bottom: 0.5rem;
 }
-.slider-wrapper{
-    position: relative;
-    align-items: center;
-    display: flex;
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
-.slider-container{
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    flex: 1;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE ve Edge */
-    scroll-snap-type: x mandatory;
+.slider-container {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  flex: 1;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE & Edge */
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 0px;
 }
 .slider-container::-webkit-scrollbar {
-display: none; /* Chrome, Safari */
+  display: none; /* Chrome, Safari */
 }
-
-.slider{
-    display: flex;
-    gap: 1.5rem;
-    padding: 1rem 0;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
+.slider {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  align-items: center;
+  justify-content: flex-start;
 }
-.slide{
-    min-width: 200px;
-    background-color: #1a1a1a;
-    border-radius: 10px;
-    overflow: hidden;
-    flex-shrink: 0;
-    transition: transform 0.3s;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    scroll-snap-align: start;
-    text-decoration: none;
-    color: white;
+.slide {
+  min-width: 200px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+  cursor: pointer;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.slide:hover{
-    transform: scale(1.05);
+.slide:hover {
+  transform: scale(1.05);
 }
-.slide img{
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
+.slide img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
 }
-.slide h3{
-    padding: 0.7rem;
-    font-size: 1.1rem;
+.slide h3 {
+  padding: 0.7rem;
+  font-size: 1.1rem;
+  margin: 0;
 }
-
-.slider-btn{
-    background-color: rgba(0,0,0,0.6);
-    border: none;
-    color: white;
-    font-size: 2rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    z-index: 2;
-    top: 50%;
-    transform: translateY(-50%);
-    position: absolute;
+.slider-btn {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
-.slider-btn.left{
-    position: absolute;
-    left: -10px;
+.slider-btn.left {
+  left: 0;
+  transform: translate(-50%, -50%);
 }
-.slider-btn.right{
-    position: absolute;
-    right: -10px;
+.slider-btn.right {
+  right: 0;
+  transform: translate(50%, -50%);
 }
 
 /* Suggested Film and Series */
@@ -320,19 +354,6 @@ display: none; /* Chrome, Safari */
     font-size: 16px;
     text-align: center;
   }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #0e0e0e;
-    color: #ffffff;
-    line-height: 1.6;
-  }
   
   #details {
     max-width: 1200px;
@@ -355,12 +376,12 @@ display: none; /* Chrome, Safari */
   }
   
   .detail-card img {
-    width: 100%;
-    height: auto;
-    max-height: 600px;
-    object-fit: cover;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  }
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
   
   .info {
     padding: 30px;
@@ -472,7 +493,16 @@ display: none; /* Chrome, Safari */
 
  /*FİLMS CSS KISMI */
 
-.search-box-film{
+/* Film Başlığı */
+.hero-film h1 {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 2rem;
+  color: white;
+}
+
+/* Arama Kutusu */
+.search-box-film {
   display: flex;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.08);
@@ -484,25 +514,21 @@ display: none; /* Chrome, Safari */
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 10;
+  max-width: 90%;
 }
-.hero-film h1{
-  text-align: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-.film-content h1{
-  font-size: 2rem;
-  color: #ffffff;
-}
+
 .search-box-film input {
   background: transparent;
   border: none;
   color: white;
   outline: none;
   font-size: 14px;
-  width: 160px;
+  width: 100%;
+  min-width: 100px;
   padding: 4px;
 }
+
 .search-box-film button {
   background: none;
   border: none;
@@ -511,33 +537,113 @@ display: none; /* Chrome, Safari */
   font-size: 16px;
 }
 
+/* Film Kartları */
 .movie-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
   padding: 20px;
-  cursor: pointer;
+  justify-items: center;
 }
 
 .movie-card {
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
-  padding: 12px;
+  padding: 8px;
   text-align: center;
   color: white;
   backdrop-filter: blur(10px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 180px;
+  box-sizing: border-box;
 }
 
 .movie-card img {
   width: 100%;
-  border-radius: 12px;
+  height: auto;
+  border-radius: 10px;
+  max-height: 260px;
+  object-fit: cover;
 }
 
 .movie-card:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive*/
+
+@media (max-width: 1024px) {
+  .hero-film h1 {
+    font-size: 2.2rem;
+  }
+
+  .movie-container {
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .movie-card {
+    max-width: 160px;
+  }
+
+  .movie-card img {
+    max-height: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-film h1 {
+    font-size: 1.8rem;
+  }
+
+  .search-box-film {
+    width: 90%;
+    flex-direction: row;
+  }
+
+  .movie-container {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .movie-card {
+    max-width: 140px;
+    padding: 6px;
+  }
+
+  .movie-card img {
+    max-height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-film h1 {
+    font-size: 1.6rem;
+  }
+
+  .search-box-film {
+    flex-direction: row;
+    padding: 6px 10px;
+  }
+
+  .movie-container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .movie-card {
+    max-width: 120px;
+    padding: 4px;
+  }
+
+  .movie-card img {
+    max-height: 180px;
+  }
 }
 
 /* Series kısmı */
@@ -546,6 +652,8 @@ display: none; /* Chrome, Safari */
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 24px;
   padding: 20px;
+  justify-items: center;
+  box-sizing: border-box;
   cursor: pointer;
 }
 
@@ -558,25 +666,94 @@ display: none; /* Chrome, Safari */
   color: white;
   backdrop-filter: blur(10px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 200px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .series-card img {
   width: 100%;
+  height: auto;
   border-radius: 12px;
+  object-fit: cover;
 }
 
 .series-card:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
 }
-.hero-series h1{
+
+/* Başlık stilleri */
+.hero-series h1 {
   text-align: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  color: white;
 }
-.series-content h1{
+
+.series-content h1 {
   font-weight: bold;
   font-size: 2rem;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive*/
+@media (max-width: 1024px) {
+  .series-container {
+    gap: 20px;
+    padding: 16px;
+  }
+
+  .series-card {
+    max-width: 180px;
+  }
+
+  .series-content h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .series-container {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .series-card {
+    max-width: 150px;
+    padding: 10px;
+  }
+
+  .series-card img {
+    border-radius: 10px;
+  }
+
+  .series-content h1 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .series-container {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .series-card {
+    max-width: 130px;
+    padding: 8px;
+  }
+
+  .series-card img {
+    border-radius: 8px;
+  }
+
+  .series-content h1 {
+    font-size: 1.4rem;
+  }
 }
 
 /*Reels*/

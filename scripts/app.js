@@ -7,31 +7,35 @@ document.addEventListener("DOMContentLoaded", function () {
     const slide = document.querySelector('.slide');
     const slider = document.querySelector('.slider');
 
-    if (!leftBtn || !rightBtn || !sliderContainer || !slide || !slider) {
-        console.error("Slider elemanları eksik!");
-        return;
-    }
-
     const gap = parseInt(getComputedStyle(slider).gap) || 24;
-
     function getScrollAmount() {
         return slide.offsetWidth + gap;
     }
 
     rightBtn.addEventListener('click', () => {
-        sliderContainer.scrollBy({
-            left: getScrollAmount(),
-            behavior: 'smooth'
-        });
+        sliderContainer.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
     });
 
     leftBtn.addEventListener('click', () => {
-        sliderContainer.scrollBy({
-            left: -getScrollAmount(),
-            behavior: 'smooth'
-        });
-    });
+        const currentScroll = sliderContainer.scrollLeft;
+        const scrollAmount = getScrollAmount();
+    
+        // Eğer zaten en sola yakınsa, doğrudan sıfıra götür
+        if (currentScroll <= scrollAmount) {
+            sliderContainer.scrollTo({
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            sliderContainer.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    });    
 });
+
+
 
 /* Film and Series APİ */
 
