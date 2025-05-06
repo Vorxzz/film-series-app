@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const currentScroll = sliderContainer.scrollLeft;
         const scrollAmount = getScrollAmount();
     
-        // Eğer zaten en sola yakınsa, doğrudan sıfıra götür
+        
         if (currentScroll <= scrollAmount) {
             sliderContainer.scrollTo({
                 left: 0,
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // renderMovies fonksiyonu tanımlandı
 function renderMovies(movies) {
   const moviesContainer = document.getElementById('movies-container');
-  if (!moviesContainer) return;  // Eğer container yoksa, fonksiyon çalışmaz.
+  if (!moviesContainer) return;  
 
   movies.forEach(movie => {
       const movieCard = document.createElement('div');
@@ -51,13 +51,13 @@ function renderMovies(movies) {
           <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
           <h3>${movie.title}</h3>
       `;
-      moviesContainer.appendChild(movieCard); // Film kartlarını ekler
+      moviesContainer.appendChild(movieCard); 
   });
 }
 
 fetch("https://api.themoviedb.org/3/movie/popular?api_key=7acee0ab0596510d99a03a4333c3d523")
     .then(res => res.json())
-    .then(data => renderMovies(data.results)); // fetch verisini renderMovies fonksiyonu ile işle
+    .then(data => renderMovies(data.results)); 
 
 // search fonksiyonu güncellendi
 function search() {
@@ -114,7 +114,3 @@ if (query) {
 } else {
     resultsContainer.innerHTML = "<p>Aranacak bir kelime yazılmadı.</p>";
 }
-
-
-
-//responsive menu

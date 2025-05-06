@@ -54,7 +54,7 @@ if (id && type) {
     const trailerBtn = document.getElementById("trailerBtn");
     if (trailer) {
       trailerBtn.href = `https://www.youtube.com/watch?v=${trailer.key}`;
-      trailerBtn.target = "_blank"; // yeni sekmede aç
+      trailerBtn.target = "_blank"; 
     } else {
       trailerBtn.href = "#";
       trailerBtn.textContent = "🎬 Trailer Bulunamadı";

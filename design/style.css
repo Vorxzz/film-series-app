@@ -100,7 +100,7 @@ body {
   margin-left: auto;
 }
 
-/* ------- Responsive Styles ------- */
+/*Responsive */
 
 @media (max-width: 768px) {
   .menu-btn {
@@ -115,7 +115,7 @@ body {
   }
 
   .nav-container.active {
-      max-height: 500px; /* yeterli bir değer */
+      max-height: 500px; 
       margin-top: 1rem;
   }
 
@@ -493,7 +493,6 @@ body {
 
  /*FİLMS CSS KISMI */
 
-/* Film Başlığı */
 .hero-film h1 {
   text-align: center;
   margin: 2rem 0;
@@ -558,6 +557,7 @@ body {
   width: 100%;
   max-width: 180px;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .movie-card img {
@@ -821,5 +821,3 @@ body {
 .instagram-media:hover {
   transform: scale(1.02);
 }
-
-/* menubtn */
